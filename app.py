@@ -14,7 +14,7 @@ def get_flask_app(config: dict = None) -> app.Flask:
     flask_app = Flask(__name__)
     config = default_config if config is None else config
     flask_app.config.update(config)
-    api=Api(app=flask_app, version='0.1', title='EmployeePointsAPI', description='A simple API for keeping track of points awarded to employees for fixing bugs')
+    api=Api(app=flask_app, version='1.0', title='EmployeePointsAPI', description='A simple API for keeping track of points awarded to employees for fixing bugs')
     create_routes(api=api)
     db = MongoEngine(app=flask_app)
 
