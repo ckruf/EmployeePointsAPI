@@ -29,3 +29,6 @@ Poslednim filem je setup.py, ktery by mel umoznit snadnou instalaci projektu pre
 
 Ke spusteni aplikace je potreba mit nainstalovany: Flask, flask-restx a MongoEngine. 
 
+#### Testovani
+
+Na testovani API jsem pouzil aplikaci Postman, ktera umoznuje posilani HTTP requestu s hezkym GUI, misto pouzivani curl prikazu v terminalu. 
