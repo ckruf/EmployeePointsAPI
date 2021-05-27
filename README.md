@@ -1,9 +1,9 @@
 # EmployeePointsAPI
 A simple API to keep track of points awarded to employees for fixing bugs
 
-Ke strukture projektu:
+### Struktura projektu:
 
-Slozka models
+#### Slozka models
 
 Ve slozce models jsou datove modely, ktere jsem vytvoril pro zamestance, aplikace, body a pro mesice, pro ktere budou vypisovani vitezi. Kazdy model ma jeden file, ktery se jmenuje stejne jako model samotny. 
 
@@ -13,15 +13,19 @@ Model PeriodWinners ma reprezentovat jednotlive mesice a jejich viteze. Kdyz jse
 
 Dalsi modely - Employees a Applications jsou velice jednoduche a nestoji moc za vysvetleni. Mozna u Employees bych vyzdvihnul pole active, ktere je True nebo False, podle toho jestli zamestnanec je stale ve firme nebo ne, coz umoznuje trackovani historickych dat, dle zadani.
 
-Slozka api
+#### Slozka api
 
 Ve slozce api jsou pak definovany namespace - moduly API, ktere zpracovavaji individualni HTTP requesty a responses. Zde je implementovana logika pridavani zamestnancu, aplikaci, bodu a vyhodnocovani period. Opet bych rekl ze nejzajimavejsi zde jsou Point a PeriodWinner, ktere implementuji logiku zadanou v zadani - napriklad ze body nelze pripisovat za periody, ktere jsou jiz vyhodnocene, nebo losovani vitezu, kde se vitezem stava bud zamestnanec, ktery ma nejvic bodu, nebo losovani nahodneho zamestnance ze zamestnancu, kteri maji nejvyssi pocet bodu, pokud jich je vic.
 
 Zde bych vyzdvihnul, ze api jsou naprogramovana tak, aby flask-restx implementoval swagger-json dokumentaci. Takze kdyz si projekt spustite, a pres prohlizec navstivite index (127.0.0.1:5000/), tak je zde krasna dokumentace ohledne toho jake HTTP requesty lze posilat na ktera URL, co se ocekava za data, a jakou formu bude mit response. 
 
+#### Hlavni slozka
+
 Ve hlavni slozce pak jeste mame app.py, ve kterem je nakonfigurovana samotna Flask aplikace. Zde stoji za zminku default_config. Pokud byste si aplikaci chtel sam spustit, tak je potreba mit pusteny MongoDB server s prislusnym hostem a portem, s databazi jmenem employeepoints. V teto databazi by pak meli byt 4 collections, jedna pro kazdy model - applications, employees, period_winners a points. Ale pokud si projekt sam spustite, a pres POST requesty pridate zamestnance, body, periody a aplikace, tak by se vam tyto collections meli inicializovat sami v databazi. 
 
 Poslednim filem je setup.py, ktery by mel umoznit snadnou instalaci projektu pres pip, ale to jsem nemel moznost otestovat. Alternativne je mozne aplikaci spustit pomoci prikazu 'py app.py' (na Windows), ktery by pak mel rozbehnout lokalni server. 
+
+#### Requirements
 
 Ke spusteni aplikace je potreba mit nainstalovany: Flask, flask-restx a MongoEngine. 
 
